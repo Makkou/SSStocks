@@ -6,11 +6,11 @@ package com.assignment.superSimpleStocks.stock;
  */
 public class StockData {
 
-	protected String symbol;
-	protected StockType stockType;
-	protected Integer lastDividend;
-	protected Double fixedDividend;
-	protected Integer parValue;
+	private String symbol;
+	private StockType stockType;
+	private Integer lastDividend;
+	private Double fixedDividend;
+	private Integer parValue;
 
 	public StockData() {
 		super();
