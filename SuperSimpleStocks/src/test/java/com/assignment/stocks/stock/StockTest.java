@@ -1,4 +1,4 @@
-package com.assignment.superSimpleStocks.stock;
+package com.assignment.stocks.stock;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -6,8 +6,10 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.assignment.superSimpleStocks.trade.Trade;
-import com.assignment.superSimpleStocks.trade.TradeDirection;
+import com.assignment.stocks.stock.StockImpl;
+import com.assignment.stocks.stock.StockType;
+import com.assignment.stocks.trade.Trade;
+import com.assignment.stocks.trade.TradeDirection;
 
 public class StockTest {
 

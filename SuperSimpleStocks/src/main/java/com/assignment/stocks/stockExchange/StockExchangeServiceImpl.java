@@ -1,13 +1,13 @@
-package com.assignment.superSimpleStocks.stockExchange;
+package com.assignment.stocks.stockExchange;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.assignment.superSimpleStocks.exception.StockException;
-import com.assignment.superSimpleStocks.exception.StockNotFoundException;
-import com.assignment.superSimpleStocks.stock.Stock;
-import com.assignment.superSimpleStocks.stock.StockImpl;
-import com.assignment.superSimpleStocks.stock.StockType;
+import com.assignment.stocks.exception.StockException;
+import com.assignment.stocks.exception.StockNotFoundException;
+import com.assignment.stocks.stock.Stock;
+import com.assignment.stocks.stock.StockImpl;
+import com.assignment.stocks.stock.StockType;
 
 public class StockExchangeServiceImpl implements StockExchangeService {
 

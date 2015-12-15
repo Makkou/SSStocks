@@ -1,4 +1,4 @@
-package com.assignment.superSimpleStocks.stock;
+package com.assignment.stocks.stock;
 
 import java.util.Date;
 import java.util.Map.Entry;
@@ -8,9 +8,9 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
-import com.assignment.superSimpleStocks.TestApp;
-import com.assignment.superSimpleStocks.trade.Trade;
-import com.assignment.superSimpleStocks.trade.TradeDirection;
+import com.assignment.stocks.TestApp;
+import com.assignment.stocks.trade.Trade;
+import com.assignment.stocks.trade.TradeDirection;
 
 public class StockImpl extends StockData implements Stock {
 

@@ -1,14 +1,14 @@
-package com.assignment.superSimpleStocks;
+package com.assignment.stocks;
 
 import java.util.Random;
 
 import org.apache.log4j.Logger;
 
-import com.assignment.superSimpleStocks.exception.StockException;
-import com.assignment.superSimpleStocks.stock.Stock;
-import com.assignment.superSimpleStocks.stock.StockType;
-import com.assignment.superSimpleStocks.stockExchange.StockExchangeService;
-import com.assignment.superSimpleStocks.stockExchange.StockExchangeServiceImpl;
+import com.assignment.stocks.exception.StockException;
+import com.assignment.stocks.stock.Stock;
+import com.assignment.stocks.stock.StockType;
+import com.assignment.stocks.stockExchange.StockExchangeService;
+import com.assignment.stocks.stockExchange.StockExchangeServiceImpl;
 
 public class TestApp {
 

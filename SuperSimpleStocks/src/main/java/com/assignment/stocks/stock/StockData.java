@@ -1,4 +1,4 @@
-package com.assignment.superSimpleStocks.stock;
+package com.assignment.stocks.stock;
 
 /**
  * Class to store the StockData details. <br>

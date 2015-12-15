@@ -1,4 +1,4 @@
-package com.assignment.superSimpleStocks.trade;
+package com.assignment.stocks.trade;
 
 /**
  * class to hold the trade details

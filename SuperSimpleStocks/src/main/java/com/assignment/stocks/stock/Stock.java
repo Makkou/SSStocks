@@ -1,9 +1,9 @@
-package com.assignment.superSimpleStocks.stock;
+package com.assignment.stocks.stock;
 
 import java.util.Date;
 import java.util.NavigableMap;
 
-import com.assignment.superSimpleStocks.trade.Trade;
+import com.assignment.stocks.trade.Trade;
 
 public interface Stock {
 

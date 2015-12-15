@@ -1,11 +1,11 @@
-package com.assignment.superSimpleStocks.stockExchange;
+package com.assignment.stocks.stockExchange;
 
 import java.util.Map;
 
-import com.assignment.superSimpleStocks.exception.StockException;
-import com.assignment.superSimpleStocks.exception.StockNotFoundException;
-import com.assignment.superSimpleStocks.stock.Stock;
-import com.assignment.superSimpleStocks.stock.StockType;
+import com.assignment.stocks.exception.StockException;
+import com.assignment.stocks.exception.StockNotFoundException;
+import com.assignment.stocks.stock.Stock;
+import com.assignment.stocks.stock.StockType;
 
 /**
  * the Stock Exchange Service. <br>

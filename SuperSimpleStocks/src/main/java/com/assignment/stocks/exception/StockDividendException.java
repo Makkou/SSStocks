@@ -1,4 +1,4 @@
-package com.assignment.superSimpleStocks.exception;
+package com.assignment.stocks.exception;
 
 public class StockDividendException extends StockException {
 
