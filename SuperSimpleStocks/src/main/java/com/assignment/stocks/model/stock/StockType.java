@@ -1,4 +1,4 @@
-package com.assignment.stocks.stock;
+package com.assignment.stocks.model.stock;
 
 public enum StockType {
 

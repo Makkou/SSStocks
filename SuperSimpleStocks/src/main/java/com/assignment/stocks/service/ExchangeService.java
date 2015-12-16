@@ -1,32 +1,24 @@
-package com.assignment.stocks.stockExchange;
+package com.assignment.stocks.service;
 
 import java.util.Map;
 
 import com.assignment.stocks.exception.StockException;
 import com.assignment.stocks.exception.StockNotFoundException;
-import com.assignment.stocks.stock.Stock;
-import com.assignment.stocks.stock.StockType;
+import com.assignment.stocks.model.stock.Stock;
+import com.assignment.stocks.model.stock.StockType;
 
 /**
- * the Stock Exchange Service. <br>
- * All number values in pennies
- *
+ * The Stock Exchange Service. <br>
  */
-public interface StockExchangeService {
+public interface ExchangeService {
 
-	/**
-	 * Add a stock details to the available stocks
-	 * 
-	 * @param stock
-	 */
 	void addStock(Stock stock);
 
-	void addStock(String stockSymbol, StockType stockType, Integer lastDividend, Double fixedDividend,
-			Integer parValue);
+	void addStock(String stockSymbol, StockType stockType, Double lastDividend, Double fixedDividend, Double parValue);
 
-	public Map<String, Stock> getStocks();
+	Map<String, Stock> getStockMap();
 
-	public Stock getStockBySymbol(String stockSymbol) throws StockNotFoundException;
+	Stock getStockBySymbol(String stockSymbol) throws StockNotFoundException;
 
 	/**
 	 * For a given a market price, the Dividend Yield is :
@@ -38,23 +30,23 @@ public interface StockExchangeService {
 	 * @param stockSymbol
 	 *            the stock symbol
 	 * @param marketPrice
-	 *            the price (in penny) to use to calculate the dividend yield
+	 *            the price to use to calculate the dividend yield
 	 * @return The dividend
 	 * @throws StockException
 	 */
-	Double calculateDividendYield(String stockSymbol, Integer marketPrice) throws StockException;
+	Double calculateDividendYield(String stockSymbol, Double marketPrice) throws StockException;
 
 	/**
 	 * the Price/Earnings Ratio (P/E Ratio) = Market Price / Dividend
 	 * 
 	 * @param stockSymbol
-	 *            * the stock symbol
+	 *            the stock symbol
 	 * @param marketPrice
-	 *            the price (in penny) to use to calculate the P/E Ratio
+	 *            the price to use to calculate the P/E Ratio
 	 * @return
 	 * @throws StockException
 	 */
-	Double calculatePriceEarningsRatio(String stockSymbol, Integer marketPrice) throws StockException;
+	Double calculatePriceEarningsRatio(String stockSymbol, Double marketPrice) throws StockException;
 
 	/**
 	 * record a Buy trading on a stock.
@@ -62,10 +54,9 @@ public interface StockExchangeService {
 	 * @param stockSymbol
 	 * @param tradeQuantity
 	 * @param tradePrice
-	 *            in penny
 	 * @throws StockNotFoundException
 	 */
-	void buyStock(String stockSymbol, Integer tradeQuantity, Integer tradePrice) throws StockNotFoundException;
+	void buyStock(String stockSymbol, Integer tradeQuantity, Double tradePrice) throws StockNotFoundException;
 
 	/**
 	 * record a Sell trading on a stock.
@@ -73,10 +64,9 @@ public interface StockExchangeService {
 	 * @param stockSymbol
 	 * @param tradeQuantity
 	 * @param tradePrice
-	 *            in penny
 	 * @throws StockNotFoundException
 	 */
-	void sellStock(String stockSymbol, Integer tradeQuantity, Integer tradePrice) throws StockNotFoundException;
+	void sellStock(String stockSymbol, Integer tradeQuantity, Double tradePrice) throws StockNotFoundException;
 
 	/**
 	 * for a given numberOfMinutes, the Volume Weighted Stock Price = sum(Trade

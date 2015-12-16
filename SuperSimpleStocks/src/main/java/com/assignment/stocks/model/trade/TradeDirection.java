@@ -1,4 +1,4 @@
-package com.assignment.stocks.trade;
+package com.assignment.stocks.model.trade;
 
 /**
  * Buy or Sell indicator

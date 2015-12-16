@@ -5,48 +5,48 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 
 import com.assignment.stocks.exception.StockException;
-import com.assignment.stocks.stock.Stock;
-import com.assignment.stocks.stock.StockType;
-import com.assignment.stocks.stockExchange.StockExchangeService;
-import com.assignment.stocks.stockExchange.StockExchangeServiceImpl;
+import com.assignment.stocks.model.stock.Stock;
+import com.assignment.stocks.model.stock.StockType;
+import com.assignment.stocks.service.ExchangeService;
+import com.assignment.stocks.service.ExchangeServiceImpl;
 
 public class TestApp {
 
 	private static final Logger logger = Logger.getLogger(TestApp.class);
 
 	public static void main(String[] args) {
-		StockExchangeService se = new StockExchangeServiceImpl();
+		ExchangeService se = new ExchangeServiceImpl();
 
-		se.addStock("TEA", StockType.COMMON, 0, null, 100);
-		se.addStock("POP", StockType.COMMON, 8, null, 100);
-		se.addStock("ALE", StockType.COMMON, 23, null, 60);
-		se.addStock("GIN", StockType.PREFERRED, 8, 0.02d, 100);
-		se.addStock("JOE", StockType.COMMON, 13, null, 250);
+		se.addStock("TEA", StockType.COMMON, 0d, null, 100d);
+		se.addStock("POP", StockType.COMMON, 8d, null, 100d);
+		se.addStock("ALE", StockType.COMMON, 23d, null, 60d);
+		se.addStock("GIN", StockType.PREFERRED, 8d, 0.02d, 100d);
+		se.addStock("JOE", StockType.COMMON, 13d, null, 250d);
 
 		Random random = new Random();
 		Integer minRandom = 1;
 		Integer maxRandom = 9;
 
-		for (Stock stock : se.getStocks().values()) {
+		for (Stock stock : se.getStockMap().values()) {
 			try {
 				logger.info("Trading " + stock);
-				for (int i = 1; i <= 10; i++) {
+				for (int i = 1; i <= random.nextInt(20); i++) {
 					Integer randomQuantity = random.nextInt(maxRandom + 1) + minRandom;
-					Integer randomPrice = random.nextInt(maxRandom + 1) + minRandom;
+					Double randomPrice = new Double(random.nextInt(maxRandom + 1)) + minRandom;
 					if (random.nextBoolean()) {
-						stock.buy(randomQuantity, randomPrice);
+						se.buyStock(stock.getSymbol(), randomQuantity, randomPrice);
 						logger.info("Buy  : " + randomQuantity + "\tat " + randomPrice);
 					} else {
-						stock.sell(randomQuantity, randomPrice);
+						se.sellStock(stock.getSymbol(), randomQuantity, randomPrice);
 						logger.info("Sell : " + randomQuantity + "\tat " + randomPrice);
 					}
 					Thread.sleep(1000);
 				}
 
-				logger.info("Dividend Yield       : " + se.calculateDividendYield(stock.getSymbol(), 4));
-				logger.info("Price Earnings Ratio : " + se.calculatePriceEarningsRatio(stock.getSymbol(), 4));
+				logger.info("Dividend Yield       : " + se.calculateDividendYield(stock.getSymbol(), 4d));
+				logger.info("Price Earnings Ratio : " + se.calculatePriceEarningsRatio(stock.getSymbol(), 4d));
 				logger.info("Volume Weighted Stock Price (past 15mn trades): "
-						+ se.calculateVolumeWeightedStockPrice(stock.getSymbol(), 15));
+						+ se.calculateVolumeWeightedStockPrice(stock.getSymbol(), 5));
 			} catch (StockException e) {
 				logger.error("Error : " + e.getMessage(), e);
 			} catch (InterruptedException e) {
