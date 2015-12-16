@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Trade details
  */
-public class Trade implements Comparable<Trade> {
+public class Trade {
 
 	private String stockSymbol;
 	private TradeDirection direction;
@@ -139,10 +139,6 @@ public class Trade implements Comparable<Trade> {
 		builder.append(timestamp);
 		builder.append("]");
 		return builder.toString();
-	}
-
-	public int compareTo(Trade anotherTrade) {
-		return this.getTimestamp().compareTo(anotherTrade.getTimestamp());
 	}
 
 }

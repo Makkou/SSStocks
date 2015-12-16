@@ -2,6 +2,8 @@ package com.assignment.stocks.service;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +18,6 @@ import com.assignment.stocks.model.stock.Stock;
 import com.assignment.stocks.model.stock.StockType;
 import com.assignment.stocks.model.trade.Trade;
 import com.assignment.stocks.model.trade.TradeDirection;
-import com.assignment.stocks.service.ExchangeServiceImpl;
 
 public class ExchangeServiceTest {
 
@@ -53,7 +54,11 @@ public class ExchangeServiceTest {
 		se.addStock(stock);
 		se.buyStock(stock.getSymbol(), 10, 3d);
 
-		assertEquals(new Trade("POP", TradeDirection.BUY, 10, 3d), se.getTradeMap().get("POP").get(0));
+		Date expectedTimestamp = se.getTradeMap().get("POP").get(0).getTimestamp();
+
+		Trade expectedTrade = new Trade("POP", TradeDirection.BUY, 10, 3d, expectedTimestamp);
+
+		assertEquals(expectedTrade, se.getTradeMap().get("POP").get(0));
 	}
 
 	@Test
